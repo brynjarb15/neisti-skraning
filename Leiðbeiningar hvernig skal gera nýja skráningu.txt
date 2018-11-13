@@ -1,0 +1,20 @@
+Búa til nýja skráningu:
+
+https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
+
+Búa til nýtt sheet
+
+Copy-a efstu línuna yfir í nýja sheet-ið
+	Hérna er hægt að breyta nöfnunum á búðunum en passa þarf að þau passi við nöfin í react-appinu
+
+Tools -> Script editor
+
+Copy - paste kóðann úr gamalli skráningu yfir í nýja
+
+Run -> Run function -> setup
+
+Publish -> Deploy as web app...
+	Execture the app as: Passa að það sé 'Me'
+	Who has access to the app: Passa að það sé 'Anyone, even anonymous'
+	
+Copy paste url-ið sem maður fær yfir í InternetFunctions sem er í react-appinu

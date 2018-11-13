@@ -1,0 +1,26 @@
+{
+  "name": "neisti-skraning",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
+    "bootstrap": "^3.3.7",
+    "build-url": "^1.1.2",
+    "jquery": "^3.3.1",
+    "pretty-checkbox": "^3.0.3",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.1",
+    "react-modal": "^3.4.5",
+    "react-scripts": "1.1.4",
+    "request": "^2.87.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
