@@ -10,12 +10,13 @@ class Registration extends Component {
         super(props);
         // Name of objects in the state
         // Used to iterate over these fields
-        this.allFields = ['name', 'ssn', 'phone', 'email', 'scoutGroup'];
+        this.allFields = ['name', 'ssn', 'email', 'scoutGroup'];
         // Use initState so we can make all empty later
         this.initState = {
             loading: false,
             bankInfoBelongsToParticipant: true,
             allStoresNotSelectedClass: 'hidden-label ',
+            infoMissing: 'hidden-label ',
             name: {
                 name: 'Nafn',
                 val: '',
@@ -23,11 +24,6 @@ class Registration extends Component {
             },
             ssn: {
                 name: 'Kennitala',
-                val: '',
-                class: ''
-            },
-            phone: {
-                name: 'Símanúmer',
                 val: '',
                 class: ''
             },
@@ -43,43 +39,191 @@ class Registration extends Component {
             },
             events: [
                 {
-                    name: 'Klifur og sig',
-                    info: 'Bara fyrir þá sem hafa mætt oft áður',
+                    name: 'Leikjastjórnun',
+                    info: '2.5 klst',
                     val: ''
                 },
-                {
-                    name: 'Gítarkennsla',
-                    info: '',
+				{
+                    name: 'Fjallamennska og rötun',
+                    info: '2.5 klst',
                     val: ''
                 },
-                {
-                    name: 'Stjörnuskoðun',
-                    info: '',
+				{
+                    name: 'Leðurvinna, ull og garn',
+                    info: '2.5 klst',
                     val: ''
                 },
-                {
-                    name: 'Tjaldbúðarvinna',
-                    info: '',
+				{
+                    name: 'Skrautskrift',
+                    info: '1 klst',
                     val: ''
                 },
-                {
+				{
+                    name: 'Hnífar og axir',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Hnútar og bindingar',
+                    info: '2.5 klst',
+                    val: ''
+                },				
+				{
                     name: 'Skyndihjálp',
-                    info: '',
+                    info: '2.5 klst',
                     val: ''
                 },
-                {
-                    name: 'Veislustjórnun',
-                    info: '',
+				{
+                    name: 'ÚT að borða',
+                    info: '2.5 klst',
                     val: ''
-                }
+                },
+				{
+                    name: 'GAS- prímusar og hitarar',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Eldmeistarinn',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Klifur og sig',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Sálræn skyndihjálp',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Canva og photoshop',
+                    info: '1 klst',
+                    val: ''
+				},
+				{
+                    name: 'Forritun fyrir krakka',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Víkingar',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Geimurinn, stjörnur og stjörnumerki',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Íslenski fáninn',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Youtube',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Heimsmarkmiðin',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Spuni og leiklist',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Saga skátastarfs',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Flóttamannaspilið',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Gítar, ukulele og slagverk',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Úr glamri í geggjað djamm',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Kvöldvökur og varðeldastjórnun',
+                    info: '1 klst',
+                    val: ''
+                },
+                
+                {
+                    name: 'Samfélagsmiðlar',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Samskipti við foreldra',
+                    info: '1 klst',
+                    val: ''
+                },				
+				{
+                    name: 'Frá hugmynd að verkefnaplani',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Framkoma og ræðumennska',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Fundarsköp og fundarstjórn',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Góðgerðarmál',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Sveitarforinginn - grunnfærni',
+                    info: '2.5 klst',
+                    val: ''
+                },
+				{
+                    name: 'Að vera örugg í starfi',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Greindi skátinn',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Að fara með sveitina til útlanda',
+                    info: '1 klst',
+                    val: ''
+                },
+				{
+                    name: 'Sveitarforingjar á Jamboree 2019',
+                    info: '2.5 klst',
+                    val: ''
+                }	
             ]
         };
         this.state = this.initState;
         this.handleChange = this.handleChange.bind(this);
-        this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
         this.sendButtonPressed = this.sendButtonPressed.bind(this);
-        this.makeBankRadioFalse = this.makeBankRadioFalse.bind(this);
-        this.makeBankRadioTrue = this.makeBankRadioTrue.bind(this);
         this.formSentCallback = this.formSentCallback.bind(this);
         this.handleEventInputChange = this.handleEventInputChange.bind(this);
         this.checkIfEachNumberIsUsedOnlyOnce = this.checkIfEachNumberIsUsedOnlyOnce.bind(this);
@@ -92,6 +236,9 @@ class Registration extends Component {
         this.setState({ [event.target.name]: { name: this.state[event.target.name].name, val: event.target.value } });
     }
 
+    /**
+     * Handle change in number input
+     */
     handleEventInputChange(event) {
         // Get all events
         let allEvents = this.state.events.slice();
@@ -103,42 +250,21 @@ class Registration extends Component {
         this.setState({ events: allEvents});
     }
 
-    handleCheckBoxChange(event) {
-        // Get all stores
-        let newStores = this.state.stores.slice();
-        // Find the correct store
-        let storeToChange = newStores.find(x => x.name === event.target.name);
-        // Change value
-        storeToChange.val = event.target.checked;
-        // Update the state
-        this.setState({ stores: newStores });
-        // Hide the checkbox error label when a store is checked
-        if (event.target.checked) {
-            this.setState({ allStoresNotSelectedClass: 'hidden-label ' })
-        }
-    }
-
     sendButtonPressed() {
         // Check if anything is empty and if not send the form
         if (this.errorCheck()) {
             console.log('There was an error in the input');
         } else {
             this.setState({ loading: true });
-            /*
+            
             sendFormToSheet(this.state.name,
                 this.state.ssn,
-                this.state.phone,
                 this.state.email,
                 this.state.scoutGroup,
-                this.state.bankNumber,
-                this.state.stores,
-                this.state.parentSSN,
-                this.state.parentPhone,
-                this.state.parentEmail,
-                this.state.bankInfoBelongsToParticipant,
+                this.state.events,
                 this.formSentCallback
             );
-            */
+            
         }
     }
 
@@ -153,24 +279,10 @@ class Registration extends Component {
             if (this.state[nextField].val === '') {
                 // We found a empty field so we set the flag and add error class to field
                 somethingEmpty = true;
-                this.setState({ [this.allFields[i]]: { name: this.state[nextField].name, val: this.state[nextField].val, class: 'has-error ' } })
+                this.setState({ [this.allFields[i]]: { name: this.state[nextField].name, val: this.state[nextField].val, class: 'has-error ' } });
+                this.setState({infoMissing: 'show-error-label '});
             }
         }
-
-        // Check if any store is selected
-        let allStoresNotSelected = true;
-        /*
-        for (let i = 0; i < this.state.stores.length; i++) {
-            let nextStore = this.state.stores[i];
-            if (nextStore.val) {
-                allStoresNotSelected = false;
-            }
-        }
-        // If no store is selected we show error
-        if (allStoresNotSelected) {
-            this.setState({ allStoresNotSelectedClass: 'show-error-label ' });
-        }
-        */
         let someNumberNotUsedOnlyOnce = !this.checkIfEachNumberIsUsedOnlyOnce();
         return somethingEmpty || someNumberNotUsedOnlyOnce;
     }
@@ -178,7 +290,7 @@ class Registration extends Component {
     checkIfEachNumberIsUsedOnlyOnce() {
         let numbersMissing = [];
         let numbersUsedManyTimes = [];
-        for (let i = 1; i <= this.state.events.length; i++) {
+        for (let i = 1; i <= 6; i++) {
             let howManyTimesUsed = this.state.events.filter(x => x.val === i.toString()).length;
             if(howManyTimesUsed === 0){
                 numbersMissing.push(i);
@@ -215,14 +327,6 @@ class Registration extends Component {
         return input;
     }
 
-    makeBankRadioTrue() {
-        this.setState({ bankInfoBelongsToParticipant: true });
-    }
-
-    makeBankRadioFalse() {
-        this.setState({ bankInfoBelongsToParticipant: false });
-    }
-
     // Callback sent with the send form to sheet
     formSentCallback(err, httpResponse, body) {
         // Make all empty
@@ -242,7 +346,7 @@ class Registration extends Component {
         const eventList = this.state.events.map((event) =>
             <div key={event.name} className="number-input-field">
                 <input type="number" className="number-input form-control" name={event.name} onChange={this.handleEventInputChange} value={this.state.events.val}/>
-                <label className="">{event.name}
+                <label className="">{event.name} | {event.info}
                 </label>
             </div>
         );
@@ -253,27 +357,36 @@ class Registration extends Component {
         return (
             <div className="registration-all">
                 <div >
-                    <h1>Vörutalningar haust 2018</h1>
+                    <h1>Neisti - Skráning í smiðjur</h1>
                     <div className="registration-body">
                         <p>
-                            Sniðugur texti um það sem er í gangi
+                        Veljið þær 6-10 smiðjur sem þið hafið mestan áhuga á.  Númerið þær eftir áhugaröð,  þ.e. 1 fyrir þá sem þið hafið mestan áhuga á og svo framvegis. Nauðsynlegt er að velja 6 smiðjur og hámark er 10 smiðjur <br></br>
+                        Reynið að velja í bland smiðjur sem taka 1 klst og þær sem taka 2.5 klst. <br></br>
+                        Athugið að lágmarksþátttaka þarf að nást til að smiðja verði starfrækt.
                         </p>
                         <form className="form-group row">
-                            <h3>
-                                Dagskrávalmöguleikar
-                            </h3>
-                            <p>
-                                Hérna kemur texti sem útskýrir að maður eigi að setja tölu frá 1 uppí 5 inní þetta
-                            </p>
-                            {eventList}
-                            <label className={this.state.allStoresNotSelectedClass}>Aðeins má nota hverja tölu einu sinni og setja þarf tölu frá 1 uppí 5, 1 tölu í hvern reit</label>
                             <h3>
                                 Fylla þarf út eftirtaldar upplýsingar
                             </h3>
                             <div className="form-group">
                                 {list}
                             </div>
-                            <button type="button" value="senda" onClick={this.sendButtonPressed}>
+                            <h3>
+                                Smiðjur
+                            </h3>
+                            {eventList}
+                            <div>
+                                <label className={this.state.allStoresNotSelectedClass}>
+                                    Aðeins má nota hverja tölu einu sinni og setja þarf að lágmarki tölu frá 1 uppí 6, 1 tölu í hvern reit. <br></br>
+                                    Hægt er að setja tölur frá 7-10 ef áhugi er á.
+                                </label>
+                            </div>
+                            <div>
+                                <label className={this.state.infoMissing}>
+                                    Ekki er búið að fylla inn allar persónuupplýsingar
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-lg" value="senda" onClick={this.sendButtonPressed}>
                                 {buttonValue}
                             </button>
                         </form>
