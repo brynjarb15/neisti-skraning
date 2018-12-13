@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Registration from './Registration';
 import ErrorPage from './ErrorPage';
 import SuccessPage from "./SuccessPage";
+import ClosedPage from './ClosedPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStroopwafel, faPencilAlt, faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -50,6 +51,9 @@ class App extends Component {
     } else {
       page = <Registration formSentCallback={this.formSentCallback}/>;
     }
+    
+    // Remove this line to show the rest of the page
+    page = <ClosedPage />;
     return (
       <div className="App">
         {page}
