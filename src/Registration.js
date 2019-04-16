@@ -3,6 +3,7 @@ import { sendFormToSheet } from './InternetFunctions';
 import 'pretty-checkbox';
 import './Registration.css';
 import { } from '../node_modules/@fortawesome/free-solid-svg-icons';
+import DnDMenu from './DnDMenu';
 
 
 class Registration extends Component {
@@ -43,182 +44,182 @@ class Registration extends Component {
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Fjallamennska og rötun',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Leðurvinna, ull og garn',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Skrautskrift',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Hnífar og axir',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Hnútar og bindingar',
                     info: '2.5 klst',
                     val: ''
-                },				
-				{
+                },
+                {
                     name: 'Skyndihjálp',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'ÚT að borða',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'GAS- prímusar og hitarar',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Eldmeistarinn',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Klifur og sig',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Sálræn skyndihjálp',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Canva og photoshop',
                     info: '1 klst',
                     val: ''
-				},
-				{
+                },
+                {
                     name: 'Forritun fyrir krakka',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Víkingar',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Geimurinn, stjörnur og stjörnumerki',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Íslenski fáninn',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Youtube',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Heimsmarkmiðin',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Spuni og leiklist',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Saga skátastarfs',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Flóttamannaspilið',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Gítar, ukulele og slagverk',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Úr glamri í geggjað djamm',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Kvöldvökur og varðeldastjórnun',
                     info: '1 klst',
                     val: ''
                 },
-                
+
                 {
                     name: 'Samfélagsmiðlar',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Samskipti við foreldra',
                     info: '1 klst',
                     val: ''
-                },				
-				{
+                },
+                {
                     name: 'Frá hugmynd að verkefnaplani',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Framkoma og ræðumennska',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Fundarsköp og fundarstjórn',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Góðgerðarmál',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Sveitarforinginn - grunnfærni',
                     info: '2.5 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Að vera örugg í starfi',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Greindi skátinn',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Að fara með sveitina til útlanda',
                     info: '1 klst',
                     val: ''
                 },
-				{
+                {
                     name: 'Sveitarforingjar á Jamboree 2019',
                     info: '2.5 klst',
                     val: ''
-                }	
+                }
             ]
         };
         this.state = this.initState;
@@ -247,7 +248,7 @@ class Registration extends Component {
         // Change value
         eventToChange.val = event.target.value;
         // Update the state
-        this.setState({ events: allEvents});
+        this.setState({ events: allEvents });
     }
 
     sendButtonPressed() {
@@ -256,7 +257,7 @@ class Registration extends Component {
             console.log('There was an error in the input');
         } else {
             this.setState({ loading: true });
-            
+
             sendFormToSheet(this.state.name,
                 this.state.ssn,
                 this.state.email,
@@ -264,7 +265,7 @@ class Registration extends Component {
                 this.state.events,
                 this.formSentCallback
             );
-            
+
         }
     }
 
@@ -280,7 +281,7 @@ class Registration extends Component {
                 // We found a empty field so we set the flag and add error class to field
                 somethingEmpty = true;
                 this.setState({ [this.allFields[i]]: { name: this.state[nextField].name, val: this.state[nextField].val, class: 'has-error ' } });
-                this.setState({infoMissing: 'show-error-label '});
+                this.setState({ infoMissing: 'show-error-label ' });
             }
         }
         let someNumberNotUsedOnlyOnce = !this.checkIfEachNumberIsUsedOnlyOnce();
@@ -292,14 +293,14 @@ class Registration extends Component {
         let numbersUsedManyTimes = [];
         for (let i = 1; i <= 6; i++) {
             let howManyTimesUsed = this.state.events.filter(x => x.val === i.toString()).length;
-            if(howManyTimesUsed === 0){
+            if (howManyTimesUsed === 0) {
                 numbersMissing.push(i);
             }
-            if(howManyTimesUsed > 1){
-                numbersUsedManyTimes.push({number: i, times: howManyTimesUsed});
+            if (howManyTimesUsed > 1) {
+                numbersUsedManyTimes.push({ number: i, times: howManyTimesUsed });
             }
         }
-        if(numbersMissing.length !== 0 || numbersUsedManyTimes.length !== 0){
+        if (numbersMissing.length !== 0 || numbersUsedManyTimes.length !== 0) {
             this.setState({ allStoresNotSelectedClass: 'show-error-label ' });
             return false;
         } else {
@@ -345,7 +346,7 @@ class Registration extends Component {
         // Make store checkbox list
         const eventList = this.state.events.map((event) =>
             <div key={event.name} className="number-input-field">
-                <input type="number" className="number-input form-control" name={event.name} onChange={this.handleEventInputChange} value={this.state.events.val}/>
+                <input type="number" className="number-input form-control" name={event.name} onChange={this.handleEventInputChange} value={this.state.events.val} />
                 <label className="">{event.name} | {event.info}
                 </label>
             </div>
@@ -360,9 +361,9 @@ class Registration extends Component {
                     <h1>Neisti - Skráning í smiðjur</h1>
                     <div className="registration-body">
                         <p>
-                        Veljið þær 6-10 smiðjur sem þið hafið mestan áhuga á.  Númerið þær eftir áhugaröð,  þ.e. 1 fyrir þá sem þið hafið mestan áhuga á og svo framvegis. Nauðsynlegt er að velja 6 smiðjur og hámark er 10 smiðjur <br></br>
-                        Reynið að velja í bland smiðjur sem taka 1 klst og þær sem taka 2.5 klst. <br></br>
-                        Athugið að lágmarksþátttaka þarf að nást til að smiðja verði starfrækt.
+                            Veljið þær 6-10 smiðjur sem þið hafið mestan áhuga á.  Númerið þær eftir áhugaröð,  þ.e. 1 fyrir þá sem þið hafið mestan áhuga á og svo framvegis. Nauðsynlegt er að velja 6 smiðjur og hámark er 10 smiðjur <br></br>
+                            Reynið að velja í bland smiðjur sem taka 1 klst og þær sem taka 2.5 klst. <br></br>
+                            Athugið að lágmarksþátttaka þarf að nást til að smiðja verði starfrækt.
                         </p>
                         <form className="form-group row">
                             <h3>
@@ -386,7 +387,7 @@ class Registration extends Component {
                                     Ekki er búið að fylla inn allar persónuupplýsingar
                                 </label>
                             </div>
-                            <button type="button" class="btn btn-primary btn-lg" value="senda" onClick={this.sendButtonPressed}>
+                            <button type="button" className="btn btn-primary btn-lg" value="senda" onClick={this.sendButtonPressed}>
                                 {buttonValue}
                             </button>
                         </form>
