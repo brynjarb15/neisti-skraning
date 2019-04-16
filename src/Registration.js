@@ -372,10 +372,14 @@ class Registration extends Component {
                             <div className="form-group">
                                 {list}
                             </div>
+                            <h3>Smiðjur</h3>
+                            <DnDMenu></DnDMenu>
+                            {/*
                             <h3>
                                 Smiðjur
                             </h3>
                             {eventList}
+                             */}
                             <div>
                                 <label className={this.state.allStoresNotSelectedClass}>
                                     Aðeins má nota hverja tölu einu sinni og setja þarf að lágmarki tölu frá 1 uppí 6, 1 tölu í hvern reit. <br></br>

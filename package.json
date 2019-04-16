@@ -10,12 +10,14 @@
     "build-url": "^1.2.0",
     "jquery": "^3.3.1",
     "pretty-checkbox": "^3.0.3",
-    "react": "^16.6.3",
+    "react": "next",
+    "react-beautiful-dnd": "^11.0.0-beta.3",
     "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.6.3",
+    "react-dom": "next",
     "react-modal": "^3.6.1",
     "react-scripts": "1.1.4",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -53,7 +53,7 @@ class App extends Component {
     }
     
     // Remove this line to show the rest of the page
-    page = <ClosedPage />;
+    //page = <ClosedPage />;
     return (
       <div className="App">
         {page}
