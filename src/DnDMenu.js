@@ -56,7 +56,7 @@ export default class DnDMenue extends React.Component {
                     [newColmn.id]: newColmn
                 }
             };
-
+            this.props.updateEvents(newState);
             this.setState(newState);
 
             return;
@@ -84,7 +84,7 @@ export default class DnDMenue extends React.Component {
                 [newFinish.id]: newFinish
             }
         };
-
+        this.props.updateEvents(newState);
         this.setState(newState);
 
         return;

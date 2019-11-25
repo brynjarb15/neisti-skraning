@@ -4,6 +4,7 @@ import 'pretty-checkbox';
 import './Registration.css';
 import { } from '../node_modules/@fortawesome/free-solid-svg-icons';
 import DnDMenu from './DnDMenu';
+import initalData from './initial-data';
 
 
 class Registration extends Component {
@@ -18,6 +19,7 @@ class Registration extends Component {
             bankInfoBelongsToParticipant: true,
             allStoresNotSelectedClass: 'hidden-label ',
             infoMissing: 'hidden-label ',
+            eventsDnD: initalData,
             name: {
                 name: 'Nafn',
                 val: '',
@@ -226,8 +228,10 @@ class Registration extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.sendButtonPressed = this.sendButtonPressed.bind(this);
         this.formSentCallback = this.formSentCallback.bind(this);
-        this.handleEventInputChange = this.handleEventInputChange.bind(this);
+        //this.handleEventInputChange = this.handleEventInputChange.bind(this);
         this.checkIfEachNumberIsUsedOnlyOnce = this.checkIfEachNumberIsUsedOnlyOnce.bind(this);
+        this.updateEvents = this.updateEvents.bind(this);
+        
     }
 
     /**
@@ -240,6 +244,7 @@ class Registration extends Component {
     /**
      * Handle change in number input
      */
+    /*
     handleEventInputChange(event) {
         // Get all events
         let allEvents = this.state.events.slice();
@@ -250,7 +255,12 @@ class Registration extends Component {
         // Update the state
         this.setState({ events: allEvents });
     }
+    */
 
+    /**
+     * What happens when the send button is pressed
+     * Error check and the the data is sent away
+     */
     sendButtonPressed() {
         // Check if anything is empty and if not send the form
         if (this.errorCheck()) {
@@ -258,11 +268,27 @@ class Registration extends Component {
         } else {
             this.setState({ loading: true });
 
+            // Get the whoe chosen list and not chosen list by ids
+            let notChosenTaskIDs = this.state.eventsDnD.columns.NotChosenTasks.taskIds;
+            let chosenTaskIDs = this.state.eventsDnD.columns.ChosenTasks.taskIds;
+            // Get all tasks
+            let taskList = this.state.eventsDnD.tasks;
+            let chosenTasks = [];
+            let notChosenTasks = [];
+            // Put the correct tasks by id in chosen task and not chosen task
+            for (let i = 0; i < chosenTaskIDs.length; i++) {
+                chosenTasks.push(taskList[chosenTaskIDs[i]]);
+            }
+            for (let i = 0; i < notChosenTaskIDs.length; i++) {
+                notChosenTasks.push(taskList[notChosenTaskIDs[i]]);
+            }
+            // Send the data
             sendFormToSheet(this.state.name,
                 this.state.ssn,
                 this.state.email,
                 this.state.scoutGroup,
-                this.state.events,
+                chosenTasks,
+                notChosenTasks,
                 this.formSentCallback
             );
 
@@ -284,23 +310,18 @@ class Registration extends Component {
                 this.setState({ infoMissing: 'show-error-label ' });
             }
         }
+        if(!somethingEmpty) {
+            this.setState({ infoMissing: 'hidden-label ' });
+        }
         let someNumberNotUsedOnlyOnce = !this.checkIfEachNumberIsUsedOnlyOnce();
         return somethingEmpty || someNumberNotUsedOnlyOnce;
     }
 
     checkIfEachNumberIsUsedOnlyOnce() {
-        let numbersMissing = [];
-        let numbersUsedManyTimes = [];
-        for (let i = 1; i <= 6; i++) {
-            let howManyTimesUsed = this.state.events.filter(x => x.val === i.toString()).length;
-            if (howManyTimesUsed === 0) {
-                numbersMissing.push(i);
-            }
-            if (howManyTimesUsed > 1) {
-                numbersUsedManyTimes.push({ number: i, times: howManyTimesUsed });
-            }
-        }
-        if (numbersMissing.length !== 0 || numbersUsedManyTimes.length !== 0) {
+        //console.log(this.state.eventsDnD);
+        let chosenEventsIDs = this.state.eventsDnD.columns.ChosenTasks.taskIds;
+        // You have to choose between 5 and 8 objects
+        if(chosenEventsIDs.length < 5 || chosenEventsIDs.length > 8) {
             this.setState({ allStoresNotSelectedClass: 'show-error-label ' });
             return false;
         } else {
@@ -335,6 +356,10 @@ class Registration extends Component {
         this.props.formSentCallback(err, httpResponse, body);
     }
 
+    updateEvents(DnDData) {
+        this.setState({eventsDnD: DnDData});
+    }
+
 
 
     render() {
@@ -343,14 +368,6 @@ class Registration extends Component {
             this.getInputFormField(field)
         );
 
-        // Make store checkbox list
-        const eventList = this.state.events.map((event) =>
-            <div key={event.name} className="number-input-field">
-                <input type="number" className="number-input form-control" name={event.name} onChange={this.handleEventInputChange} value={this.state.events.val} />
-                <label className="">{event.name} | {event.info}
-                </label>
-            </div>
-        );
         let buttonValue = 'Senda';
         if (this.state.loading) {
             buttonValue = <div className="lds-ring"><div></div><div></div><div></div><div></div></div>;
@@ -361,7 +378,10 @@ class Registration extends Component {
                     <h1>Neisti - Skráning í smiðjur</h1>
                     <div className="registration-body">
                         <p>
-                            Veljið þær 6-10 smiðjur sem þið hafið mestan áhuga á.  Númerið þær eftir áhugaröð,  þ.e. 1 fyrir þá sem þið hafið mestan áhuga á og svo framvegis. Nauðsynlegt er að velja 6 smiðjur og hámark er 10 smiðjur <br></br>
+                            Veljið þær 5-8 smiðjur sem þið hafið mestan áhuga á.  
+                            Til að velja smiðju dragið hana úr vinstri listanum <i>Það sem er í boði</i> yfir í hæri listan <i>Það sem ég vil fara í</i>.
+                            Hægt er að draga síðan í hægri listanum upp og niður til að velja hvaða smiðju þið viljið fara mest í, nr. 1 sem þið viljið mest fara í og svo framvegis
+                            Nauðsynlegt er að velja 5 smiðjur og hámark er 8 smiðjur <br></br>
                             Reynið að velja í bland smiðjur sem taka 1 klst og þær sem taka 2.5 klst. <br></br>
                             Athugið að lágmarksþátttaka þarf að nást til að smiðja verði starfrækt.
                         </p>
@@ -373,17 +393,15 @@ class Registration extends Component {
                                 {list}
                             </div>
                             <h3>Smiðjur</h3>
-                            <DnDMenu></DnDMenu>
-                            {/*
-                            <h3>
-                                Smiðjur
-                            </h3>
-                            {eventList}
-                             */}
+                            <DnDMenu 
+                              data={this.state.eventsDnD}
+                              updateEvents={this.updateEvents}
+                            >
+
+                            </DnDMenu>
                             <div>
                                 <label className={this.state.allStoresNotSelectedClass}>
-                                    Aðeins má nota hverja tölu einu sinni og setja þarf að lágmarki tölu frá 1 uppí 6, 1 tölu í hvern reit. <br></br>
-                                    Hægt er að setja tölur frá 7-10 ef áhugi er á.
+                                    Velja þarf á milli 5 og 8 smiðjur. <br></br>
                                 </label>
                             </div>
                             <div>

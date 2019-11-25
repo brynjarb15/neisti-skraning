@@ -1,7 +1,7 @@
 import request from 'request';
 import buildUrl from 'build-url';
 
-function sendFormToSheet(name, ssn, email, scoutGroup, events, cb) {
+function sendFormToSheet(name, ssn, email, scoutGroup, chosenEvents, notChosenEvents, cb) {
 	//let url = 'https://script.google.com/macros/s/AKfycbwV_Bw6shvkcPVE3eAHRe9fqg48haLJuAJqSWb8PYgqh1yoA84n/exec?';
 
 	let params = {
@@ -11,8 +11,11 @@ function sendFormToSheet(name, ssn, email, scoutGroup, events, cb) {
 		[scoutGroup.name]: scoutGroup.val,
 		timeStamp: new Date(),
 	}
-	for(let i = 0; i < events.length; i++) {
-		params[events[i].name] = events[i].val
+	for(let i = 0; i < chosenEvents.length; i++) {
+		params[chosenEvents[i].name] = i+1;
+	}
+	for(let i = 0; i < notChosenEvents.length; i++) {
+		params[notChosenEvents[i].name] = '';
 	}
 	//console.log(params);
 	const url = buildUrl(process.env.REACT_APP_GOOGLE_URL, {
