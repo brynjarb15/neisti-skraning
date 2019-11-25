@@ -1,34 +1,36 @@
 const initalData = {
     tasks: {
-        'task-1': { id: 'task-1', content: 'Leikjastjórnun | 2.5 klst' },
-        'task-2': { id: 'task-2', content: 'Fjallamennska og rötun | 2.5 klst' },
-        'task-3': { id: 'task-3', content: 'Leðurvinna, ull og garn | 2.5 klst' },
-        'task-4': { id: 'task-4', content: 'Skrautskrift | 1 klst' },
-        'task-5': { id: 'task-5', content: 'Hnífar og axir | 1 klst' },
-        'task-6': { id: 'task-6', content: 'Hnútar og bindingar | 2.5 klst' },
-        'task-7': { id: 'task-7', content: 'Skyndihjálp | 2.5 klst' },
-        'task-8': { id: 'task-8', content: 'ÚT að borða | 2.5 klst' },
-        'task-9': { id: 'task-9', content: 'GAS- prímusar og hitarar | 1 klst' },
-        'task-10': { id: 'task-10', content: 'Eldmeistarinn | 2.5 klst' },
-        'task-11': { id: 'task-11', content: 'Klifur og sig | 2.5 klst' },
-        'task-12': { id: 'task-12', content: 'Sálræn skyndihjálp | 2.5 klst' },
-        'task-13': { id: 'task-13', content: 'Canva og photoshop | 1 klst' },
-        'task-14': { id: 'task-14', content: 'Forritun fyrir krakka | 1 klst' },
-        'task-15': { id: 'task-15', content: 'Víkingar | 1 klst' },
-        'task-16': { id: 'task-16', content: 'Geimurinn, stjörnur og stjörnumerki | 2.5 klst' },
-        'task-17': { id: 'task-17', content: 'Íslenski fáninn | 1 klst' },
-        'task-18': { id: 'task-18', content: 'Youtube | 1 klst' },
-        'task-19': { id: 'task-19', content: 'Heimsmarkmiðin | 2.5 klst' },
-        'task-20': { id: 'task-20', content: 'Spuni og leiklist | 1 klst' },
-        'task-21': { id: 'task-21', content: 'Saga skátastarfs | 2.5 klst' },
-        'task-22': { id: 'task-22', content: 'Flóttamannaspilið | 1 klst' },
-        'task-23': { id: 'task-23', content: 'Gítar, ukulele og slagverk | 2.5 klst' },
-        'task-24': { id: 'task-24', content: 'Úr glamri í geggjað djamm | 1 klst' },
-        'task-25': { id: 'task-25', content: 'Kvöldvökur og varðeldastjórnun | 1 klst' },
+        'task-1': { id: 'task-1', content: 'Leikjastjórnun | 2.5 klst', name: 'Leikjastjórnun' },
+        'task-2': { id: 'task-2', content: 'Fjallamennska og rötun | 1', name: 'Fjallamennska og rötun' },
+        'task-3': { id: 'task-3', content: 'Verkstæði skátaforingjans | 2.5 klst', name: 'Verkstæði skátaforingjans' },
+        'task-4': { id: 'task-4', content: 'Hnífar og axir | 1 klst', name: 'Hnífar og axir' },
+        'task-5': { id: 'task-5', content: 'Tjaldbúðameistarinn | 1 klst', name: 'Tjaldbúðameistarinn' },
+        'task-6': { id: 'task-6', content: 'Skyndihjálp | 2.5 klst', name: 'Skyndihjálp' },
+        'task-7': { id: 'task-7', content: 'Út að borða | 2.5 klst', name: 'Út að borða' },
+        'task-8': { id: 'task-8', content: 'Eldmeistarinn | 2.5 klst', name: 'Eldmeistarinn' },
+        'task-9': { id: 'task-9', content: 'Klifur og sig | 2.5 klst', name: 'Klifur og sig' },
+        'task-10': { id: 'task-10', content: 'Jökulsprunguæfing | 1 klst', name: 'Jökulsprunguæfing' },
+        'task-11': { id: 'task-11', content: 'Canva og hönnunarstaðall BÍS | 1 klst', name: 'Canva og hönnunarstaðall BÍS' },
+        'task-12': { id: 'task-12', content: 'Hannaðu þitt eigið merki | 2.5 klst', name: 'Hannaðu þitt eigið merki' },
+        'task-13': { id: 'task-13', content: 'Geimurinn, stjörnur og stjörnumerki | 2.5 klst', name: 'Geimurinn, stjörnur og stjörnumerki' },
+        'task-14': { id: 'task-14', content: 'Saga skátastarfs | 1 klst', name: 'Saga skátastarfs' },
+        'task-15': { id: 'task-15', content: 'Kvöldvökustjórnun og gítarkennsla | 2.5 klst', name: 'Kvöldvökustjórnun og gítarkennsla' },
+        'task-16': { id: 'task-16', content: 'Samskipti og samfélagsmiðlar | 1 klst', name: 'Samskipti og samfélagsmiðlar' },
+        'task-17': { id: 'task-17', content: 'Framkoma og ræðumennska | 1 klst', name: 'Framkoma og ræðumennska' },
+        'task-18': { id: 'task-18', content: 'Fundarsköp og fundarstjórn | 1 klst', name: 'Fundarsköp og fundarstjórn' },
+        'task-19': { id: 'task-19', content: 'Jákvæði skátaforinginn | 1 klst', name: 'Jákvæði skátaforinginn' },
+        'task-20': { id: 'task-20', content: 'Aðgengi fyrir alla | 1 klst', name: 'Aðgengi fyrir alla' },
+        'task-21': { id: 'task-21', content: 'Alþjóðlegt skátastarf | 1 klst', name: 'Alþjóðlegt skátastarf' },
+        'task-22': { id: 'task-22', content: 'Sveitarforinginn - grunnfærni | 2.5 klst', name: 'Sveitarforinginn - grunnfærni' },
+        'task-23': { id: 'task-23', content: 'Öruggur foringi á fjöllum | 1 klst', name: 'Öruggur foringi á fjöllum' },
+        'task-24': { id: 'task-24', content: 'Ævintýralegi skátaforinginn | 1 klst', name: 'Ævintýralegi skátaforinginn' },
+        'task-25': { id: 'task-25', content: 'Skipulagði skátaforinginn | 1 klst', name: 'Skipulagði skátaforinginn' },
+        'task-26': { id: 'task-26', content: 'Viðbrögð við áföllum í skátastarfi | 1 klst', name: 'Viðbrögð við áföllum í skátastarfi' },
+        'task-27': { id: 'task-27', content: 'Ævintýraferð á Ama Dablam | 1 klst', name: 'Ævintýraferð á Ama Dablam' },
     },
     columns: {
-        'AllTasks': {
-            id: 'AllTasks',
+        'NotChosenTasks': {
+            id: 'NotChosenTasks',
             title: 'Það sem er í boði',
             taskIds: [
                 'task-1',
@@ -50,11 +52,14 @@ const initalData = {
                 'task-17',
                 'task-18',
                 'task-19',
+                'task-20',
                 'task-21',
                 'task-22',
                 'task-23',
                 'task-24',
                 'task-25',
+                'task-26',
+                'task-27',
             ]
         },
         'ChosenTasks': {
@@ -64,7 +69,7 @@ const initalData = {
         }
     },
     // Facilitate reordering of the columns
-    columnOrder: ['AllTasks', 'ChosenTasks']
+    columnOrder: ['NotChosenTasks', 'ChosenTasks']
 };
 
 export default initalData;
