@@ -11,7 +11,7 @@ class ClosedPage extends Component {
         return (
             <div>
                 <h1 style={h1Style}>
-                    Lokað hefur verið fyrir skráningu í smiðjur fyrir Neista 2019 
+                    Lokað hefur verið fyrir skráningu í smiðjur fyrir Neista 2020
                 </h1>
             </div>
         );
