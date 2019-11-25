@@ -23,12 +23,21 @@
 }
 
 .copyRightText {
-  color: lightgray;
-  margin-bottom: 2em;
-  margin-top: 10em;
+  font-size: large;
+  color: lightslategray;
+  margin-bottom: 7em;
+  margin-top: 2em;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.Banner {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 7em;
 }
