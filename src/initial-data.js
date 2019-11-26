@@ -27,6 +27,9 @@ const initalData = {
         'task-25': { id: 'task-25', content: 'Skipulagði skátaforinginn | 1 klst', name: 'Skipulagði skátaforinginn' },
         'task-26': { id: 'task-26', content: 'Viðbrögð við áföllum í skátastarfi | 1 klst', name: 'Viðbrögð við áföllum í skátastarfi' },
         'task-27': { id: 'task-27', content: 'Ævintýraferð á Ama Dablam | 1 klst', name: 'Ævintýraferð á Ama Dablam' },
+        'task-28': { id: 'task-28', content: 'Flóttinn frá Ingólfi | 1 klst', name: 'Flóttinn frá Ingólfi' },
+        'task-29': { id: 'task-29', content: 'Lært í gegnum leik | 1 klst', name: 'Lært í gegnum leik' },
+
     },
     columns: {
         'NotChosenTasks': {
@@ -60,6 +63,8 @@ const initalData = {
                 'task-25',
                 'task-26',
                 'task-27',
+                'task-28',
+                'task-29',
             ]
         },
         'ChosenTasks': {

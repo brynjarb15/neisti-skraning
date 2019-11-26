@@ -379,7 +379,7 @@ class Registration extends Component {
                     <div className="registration-body">
                         <p>
                             Veljið þær 5-8 smiðjur sem þið hafið mestan áhuga á.  
-                            Til að velja smiðju dragið hana úr vinstri listanum <i>Það sem er í boði</i> yfir í hæri listan <i>Það sem ég vil fara í</i>.
+                            Til að velja smiðju dragið hana úr vinstri listanum <i>Það sem er í boði</i> yfir í hægri listan <i>Það sem ég vil fara í</i>.
                             Hægt er að draga síðan í hægri listanum upp og niður til að velja hvaða smiðju þið viljið fara mest í, nr. 1 sem þið viljið mest fara í og svo framvegis
                             Nauðsynlegt er að velja 5 smiðjur og hámark er 8 smiðjur <br></br>
                             Reynið að velja í bland smiðjur sem taka 1 klst og þær sem taka 2.5 klst. <br></br>
@@ -393,6 +393,9 @@ class Registration extends Component {
                                 {list}
                             </div>
                             <h3>Smiðjur</h3>
+                            <p>
+                            Raðaðu efst því sem þú hefur mestan áhuga á
+                            </p>
                             <DnDMenu 
                               data={this.state.eventsDnD}
                               updateEvents={this.updateEvents}
