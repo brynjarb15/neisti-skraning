@@ -51,14 +51,20 @@ class App extends Component {
     } else {
       page = <Registration formSentCallback={this.formSentCallback}/>;
     }
-    
+    // If the date is later than 1st of jan 2020 than the page is closed
+    // Change the closingDate to open up the registration
+    let closingDate = new Date('01/01/2020');
+    if( new Date() > closingDate) {
+      page = <ClosedPage />
+    }
+
     // Remove this line to show the rest of the page
     //page = <ClosedPage />;
     return (
       <div className="App">
         {page}
         <div className="copyRightText">
-        © Brynjar, 2019
+        © Brynjar, 2020
         </div>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossOrigin="anonymous" />
         
